@@ -1,0 +1,164 @@
+
+/* Basic layout */
+
+:root {
+	--settings-height: 25vh;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", sans-serif;
+}
+
+body {
+	background: #444;
+	text-align: center;
+}
+
+button {
+	color: #888;
+	background: none;
+	border: .3vh solid #888;
+	border-radius: 1vh;
+	outline: none;
+	cursor: pointer;
+}
+
+
+
+
+/* Content */
+
+.content {
+	opacity: 0.3;
+	transition: opacity .5s, fill .5s;
+}
+
+body.connected .content {
+	opacity: 1;
+}
+
+
+
+
+/* Glasses */
+
+.content .glasses {
+	position: absolute;
+	top: 20vh;
+	left: 10vw;
+	width: 80vw;
+}
+
+.content svg {
+	position: absolute;
+	left: 0;
+	width: 100%;
+}
+
+.content canvas {
+	position: absolute;
+	top: 4vw;
+	left: 12vw;
+	width: 56vw;
+	height: 22vw;
+}
+
+
+
+/* Settings */
+
+.settings {
+	position: absolute;
+	top: calc(100vh - var(--settings-height));
+	width: 100%;
+	min-height: var(--settings-height);
+	background: #333;
+
+	transition: opacity .3s ease-in-out;
+	opacity: 0.3;
+	pointer-events: none;
+}
+body.connected .settings {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+
+
+/* Pills */
+
+.pills {
+	margin-top: -2.4vh;
+	margin-bottom: 0;
+	display: flex;
+}
+.pills button {
+	margin: 0;
+	padding: 1vh 2vh;
+	border-radius: 0;
+	border-left: none;
+	font-size: 2vh;
+	background: #333;
+}
+.pills button:first-of-type {
+	border-left: .3vh solid #888;
+	border-top-left-radius: 1vh;
+	border-bottom-left-radius: 1vh;
+	margin-left: auto;
+}
+.pills button:last-of-type {
+	border-top-right-radius: 1vh;
+	border-bottom-right-radius: 1vh;
+	margin-right: auto;
+}
+
+body.text button#text,
+body.equalizer button#equalizer {
+	background: #888;
+	color: #fff;
+}
+
+
+
+
+
+/* Views */
+
+.views {
+	padding: 6vh 0;
+	min-height: 6vh;
+	display: block;
+}
+.views > div {
+	display: none;
+}
+
+body.text div#textView,
+body.equalizer div#equalizerView {
+	display: block;
+}
+
+
+
+#textView input {
+	font-size: 3vh;
+	border: none;
+	background: #333;
+	border-bottom: .3vh solid #888;
+	padding: .3vh;
+	color: #fff;
+	outline: none;
+	text-align: center;
+	min-width: 50vw;
+}
+
+#textView input:focus {
+	border-color: #367ebd;
+}
+
+
